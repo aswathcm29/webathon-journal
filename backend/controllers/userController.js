@@ -28,7 +28,7 @@ const login = async (req, res) => {
             if(!user){
               return  res.status(500).json({error:true,message:"User Not Found"})
             }    
-            const passwordMatch  =  bcrypt.compare(passWord,user.password);
+            const passwordMatch  =  await bcrypt.compare(passWord,user.password);
             if(passwordMatch){
                const authToken = await generateToken(userName,"user");
                if(authToken === ""){
@@ -55,6 +55,7 @@ const signup = async(req, res) =>{
     const userName = req.body.userName;
     const email = req.body.email;
     const password = req.body.password;
+    console.log(req.body)
     if(userName == "" || password == "" || email == ""){
         return res.status(401).json({error: true, message:"invalid credentials"})
     }
@@ -70,8 +71,9 @@ const signup = async(req, res) =>{
         const authToken = await generateToken(userName,"user");
         try{
             const doc = await userModel.create({userName: userName, password: hashPassword, email: email,token:authToken})
+            console.log(doc)
             if(doc){
-                return res.status(200).json({error:false, message:"user created successfully"});
+                return res.status(200).json({error:false, message:{token : authToken}});
             }
         }
         catch(err){

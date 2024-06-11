@@ -1,7 +1,7 @@
 const { main } = require('../utils/Lang');
 
 const categoriesFeedback = async (req, res) => {
-    var prompt = "Generate me just a  blog body content up to 500 to 600 words so that i can just paste it my blog as it is without any unwanted prompt contents";
+    var prompt = "Generate me just a journal body content up to 500 to 600 words so that i can just paste it my blog as it is without any unwanted prompt contents";
 
     try {
         const data = req.body.data;

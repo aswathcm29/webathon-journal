@@ -25,5 +25,7 @@ router.post('/getJournalbyId',checkUser,getJournalbyId);
 router.patch('/updateJournal',checkUser,updateJournal)
 router.post('/deleteJournal',checkUser,deleteJournal)
 router.post('/generateblog',checkUser,categoriesFeedback)
-    
+
+
+
 module.exports = router;

@@ -7,5 +7,4 @@ router.post('/login', login);
 router.get('/getUser',checkUser,getUser)
 
 
-
 module.exports = router;

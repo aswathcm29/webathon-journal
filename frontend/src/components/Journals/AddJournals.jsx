@@ -64,6 +64,7 @@ const AddJournals = () => {
       setTitle(data.data.message.title);
       setAuthor(data.data.message.author);
       setImage(data.data.message.image);
+      console.log('image',image)
       setDescription(data.data.message.description);
       setJournalContent(data.data.message.journalContent);
     } catch (err) {
@@ -218,7 +219,7 @@ const AddJournals = () => {
                 />
                 <div 
                   className='w-full h-20 border-2 border-dashed border-gray-800 rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-100'
-                  onClick={() => document.querySelector('input[name="image"]').click()}
+                 value={image} onClick={() => document.querySelector('input[name="image"]').click()}
                 >
                   <label className="absolute left-0 -top-8 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-green-400 peer-focus:text-sm">
                     Upload Image

@@ -28,7 +28,7 @@ const addJournal = async (req, res) => {
         const userName = req.user.userName;
         let existingJournal;
         const imageFile = req.file ? req.file.path : null;
-        const image = `${process.env.BACKEND_URL}${imageFile}`
+        const image = `${process.env.BACKEND_URL}/${imageFile}`
         console.log(image)
         if (id) {
             existingJournal = await journalModel.findById(id);
